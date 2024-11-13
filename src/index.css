@@ -1,0 +1,7 @@
+@import 'assets/fonts/LexendDeca/lexendDeca.fonts.css';
+
+body {
+  font-family: 'LexendDeca', sans-serif;
+  margin: 0;
+  padding: 0;
+}

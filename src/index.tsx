@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './index.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
 
-const Home: React.FC = () => <h1>Главная страница</h1>;
 const Art: React.FC = () => <h1>Страница с искусством</h1>;
 const Favorites: React.FC = () => <h1>Избранное</h1>;
 
