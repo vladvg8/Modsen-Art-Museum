@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const HeaderContainer = styled.header`
   width: 100%;
-  height: 127px;
+  height: clamp(80px, 7vw, 127px);
   background: linear-gradient(
     to right,
     #343333,
@@ -11,44 +11,37 @@ export const HeaderContainer = styled.header`
     #282828 100%
   );
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: space-around;
-
-  @media (max-width: 768px) {
-    height: 80px;
-  }
+  justify-content: center;
 `;
 
 export const HeaderContent = styled.div`
   width: 100%;
   max-width: 1280px;
-  height: fit-content;
+  padding: 0 2rem;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-  flex-grow: 1;
-  flex-shrink: 1;
-    
-  @media (max-width: 1300px) {
-    padding: 0 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    padding: 0 1rem;
   }
 `;
 
 export const Logo = styled.img`
+  width: clamp(160px, 15vw, 206px);
+
   @media (max-width: 768px) {
     width: 160px;
   }
 `;
 
 export const NavigationLinksContainer = styled.div`
-  width: fit-content;
-  height: fit-content;
   display: flex;
-  flex-direction: row;
   align-items: center;
   gap: 25px;
+  flex-wrap: wrap;
 
   @media (max-width: 768px) {
     display: none;
@@ -56,10 +49,7 @@ export const NavigationLinksContainer = styled.div`
 `;
 
 export const NavigationLink = styled.div`
-  width: fit-content;
-  height: fit-content;
   display: flex;
-  flex-direction: row;
   align-items: center;
   gap: 4px;
   cursor: pointer;
@@ -68,8 +58,9 @@ export const NavigationLink = styled.div`
 export const NavigationTitle = styled.p`
   color: white;
   margin: 0;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   font-weight: 400;
+  font-size: clamp(14px, 2vw, 16px);
 `;
 
 export const BurgerIcon = styled.div`
@@ -77,7 +68,7 @@ export const BurgerIcon = styled.div`
   font-size: 2rem;
   cursor: pointer;
   color: #ffffff;
-    
+
   @media (max-width: 768px) {
     display: block;
   }
@@ -94,5 +85,5 @@ export const BurgerMenu = styled.div<{ isOpen: boolean }>`
   border-radius: 0 0 0 10px;
   display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
   flex-direction: column;
-  gap: 25px;
+  gap: 1.5rem;
 `;

@@ -2,35 +2,30 @@ import styled from 'styled-components';
 
 export const FooterContainer = styled.footer`
   width: 100%;
-  height: 127px;
-  background: #FFFFFF;
+  height: clamp(80px, 7vw, 127px);
+  background: #ffffff;
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: space-around;
-
-  @media (max-width: 768px) {
-    height: 80px;
-  }
+  justify-content: center;
 `;
 
 export const FooterContent = styled.div`
   width: 100%;
   max-width: 1280px;
-  height: fit-content;
+  padding: 0 2rem;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-  flex-grow: 1;
-  flex-shrink: 1;
+  justify-content: space-between;
+  flex-wrap: wrap;
 
-  @media (max-width: 1300px) {
-    padding: 0 20px;
+  @media (max-width: 768px) {
+    padding: 0 1rem;
   }
 `;
 
 export const Logo = styled.img`
+  width: clamp(160px, 15vw, 206px);
+
   @media (max-width: 768px) {
     width: 160px;
   }

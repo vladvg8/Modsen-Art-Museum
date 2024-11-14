@@ -9,7 +9,11 @@ const Footer: React.FC = () => {
     <FooterContainer>
       <FooterContent>
         <Logo src={museumLogoLight} alt="Modsen Art Museum light logo" />
-        <Link to='https://www.modsen-software.com' style={{ textDecoration: 'none' }} target="_blank">
+        <Link
+          to="https://www.modsen-software.com"
+          style={{ textDecoration: 'none' }}
+          target="_blank"
+        >
           <Logo src={modsenLogo} alt="Modsen logo" />
         </Link>
       </FooterContent>
