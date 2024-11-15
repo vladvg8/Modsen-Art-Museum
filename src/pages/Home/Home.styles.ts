@@ -75,3 +75,17 @@ export const OtherWorks = styled.div`
   max-width: 100%;
   box-sizing: border-box;
 `;
+
+export const SearchResultContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: clamp(60px, 10vw, 120px);
+    width: 100%;
+`;
+
+export const SearchResultInfo = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;

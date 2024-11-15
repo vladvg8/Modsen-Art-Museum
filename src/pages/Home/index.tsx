@@ -3,6 +3,7 @@ import Header from './../../components/Header';
 import Footer from './../../components/Footer';
 import SearchBar from './../../components/SearchBar';
 import SmallCard from './../../components/SmallCard';
+import LargeCard from './../../components/LargeCard';
 import {
   Title,
   HomeContainer,
@@ -12,6 +13,8 @@ import {
   OtherWorksInfo,
   Text,
   OtherWorks,
+  SearchResultContainer,
+  SearchResultInfo
 } from './Home.styles';
 
 const Home: React.FC = () => {
@@ -25,6 +28,33 @@ const Home: React.FC = () => {
             <HighlightedText color={'#F17900'}>Art</HighlightedText> Here!
           </Title>
           <SearchBar />
+          <SearchResultContainer>
+            <SearchResultInfo>
+              <Text color={'#E0A449'} size={1} weight={400}>
+                Topics for you
+              </Text>
+              <Text color={'#393939'} size={2} weight={400}>
+                Our special gallery
+              </Text>
+            </SearchResultInfo>
+            <div style={{width: '100%', display: 'flex', justifyContent: 'space-between'}}>
+              <LargeCard artworkId={1}
+                         title={'Charles V, bust length, holding a sword, facing right'}
+                         author={'Giovanni Britto'}
+                         image={'https://www.artic.edu/iiif/2/f2e32bf5-0b47-5bc2-5652-09b31fb141d6/full/800,/0/default.jpg'}
+                         status={'Public'} />
+              <LargeCard artworkId={1}
+                         title={'Charles V, bust length, holding a sword, facing right'}
+                         author={'Giovanni Britto'}
+                         image={'https://www.artic.edu/iiif/2/f2e32bf5-0b47-5bc2-5652-09b31fb141d6/full/800,/0/default.jpg'}
+                         status={'Public'} />
+              <LargeCard artworkId={1}
+                         title={'Charles V, bust length, holding a sword, facing right'}
+                         author={'Giovanni Britto'}
+                         image={'https://www.artic.edu/iiif/2/f2e32bf5-0b47-5bc2-5652-09b31fb141d6/full/800,/0/default.jpg'}
+                         status={'Public'} />
+            </div>
+          </SearchResultContainer>
           <OtherWorksContainer>
             <OtherWorksInfo>
               <Text color={'#E0A449'} size={1} weight={400}>
@@ -110,7 +140,5 @@ const Home: React.FC = () => {
     </>
   );
 };
-
-//             <SmallCard artworkId={1} title={'Charles V, bust length, holding a sword, facing right'} author={'Giovanni Britto'} image={'sdasd'} status={'Public'} />
 
 export default Home;
