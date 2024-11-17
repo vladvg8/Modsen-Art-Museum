@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const LargeCardContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const Image = styled.img`
-    width: clamp(250px, 30vw, 387px);
-    height: clamp(307px, 33vw, 444px);
+  width: clamp(250px, 30vw, 387px);
+  height: clamp(307px, 33vw, 444px);
 `;
 
 export const InfoContainer = styled.div`
@@ -21,9 +21,9 @@ export const InfoContainer = styled.div`
 `;
 
 export const TitleContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
 `;
 
 export const Title = styled.p`
@@ -52,14 +52,14 @@ export const Status = styled.p`
 `;
 
 export const Card = styled.div`
-    border: 1px solid #F0F1F1;
-    background: white;
-    padding: 1rem 1.5rem;
-    top: 100%;
-    width: calc(clamp(250px, 30vw, 334px) - 3rem);
-    margin-top: -40px;
-    height: 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  border: 1px solid #f0f1f1;
+  background: white;
+  padding: 1rem 1.5rem;
+  top: 100%;
+  width: calc(clamp(250px, 30vw, 334px) - 3rem);
+  margin-top: -40px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;

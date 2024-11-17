@@ -15,7 +15,7 @@ export const HomeContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
+    overflow: hidden;
   @media (max-width: 768px) {
     padding: 0 1rem;
   }
@@ -77,15 +77,15 @@ export const OtherWorks = styled.div`
 `;
 
 export const SearchResultContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: clamp(60px, 10vw, 120px);
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: clamp(60px, 10vw, 120px);
+  width: 100%;
 `;
 
 export const SearchResultInfo = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;

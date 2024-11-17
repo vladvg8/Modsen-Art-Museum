@@ -10,6 +10,7 @@ export const FavoriteButtonContent = styled.div<{ isFavorite: boolean }>`
   background: ${({ isFavorite }) =>
     isFavorite ? 'rgb(251,215,178, 30%)' : '#F9F9F9'};
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   border-radius: 100%;
 `;
 

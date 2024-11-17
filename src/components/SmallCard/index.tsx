@@ -10,16 +10,9 @@ import {
 } from './SmallCard.styles';
 import FavoriteButton from '../FavoriteButton';
 import notExistentImageIcon from './../../assets/images/not-existent-image-icon.svg';
+import { CardProps } from '../../constants/CardProps';
 
-export interface SmallCardProps {
-  artworkId: number;
-  title: string;
-  author: string;
-  image: string;
-  status: string;
-}
-
-const SmallCard: React.FC<SmallCardProps> = ({
+const SmallCard: React.FC<CardProps> = ({
   artworkId,
   title,
   author,
