@@ -15,7 +15,7 @@ export const HomeContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-    overflow: hidden;
+  overflow: hidden;
   @media (max-width: 768px) {
     padding: 0 1rem;
   }

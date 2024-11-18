@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './../../components/Header';
 import Footer from './../../components/Footer';
 import SearchBar from './../../components/SearchBar';
@@ -18,6 +18,7 @@ import {
 } from './Home.styles';
 
 const Home: React.FC = () => {
+  const [searchQuery, setSearchQuery] = useState<string>('Urban');
 
   return (
     <>
@@ -29,7 +30,7 @@ const Home: React.FC = () => {
             <HighlightedText color={'#F17900'}>Art</HighlightedText> Here!
           </Title>
 
-          <SearchBar />
+          <SearchBar onSearch={(query) => setSearchQuery(query)} />
 
           <SearchResultContainer>
             <SearchResultInfo>
@@ -40,7 +41,7 @@ const Home: React.FC = () => {
                 Our special gallery
               </Text>
             </SearchResultInfo>
-            <SearchResults query={'cat'} />
+            <SearchResults query={searchQuery} />
           </SearchResultContainer>
 
           <OtherWorksContainer>

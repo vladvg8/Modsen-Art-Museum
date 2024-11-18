@@ -10,7 +10,6 @@ type UseLocalStorageIdsReturn = {
 const useLocalStorageIds = (key: string): UseLocalStorageIdsReturn => {
   const [ids, setIds] = useState<number[]>([]);
 
-  // Инициализация ID из localStorage
   useEffect(() => {
     const storedIds = localStorage.getItem(key);
     if (storedIds) {

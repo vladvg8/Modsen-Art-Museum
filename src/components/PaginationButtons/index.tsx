@@ -9,7 +9,11 @@ export interface PaginationButtonsProps {
   setCurrentPage: (page: number) => void;
 }
 
-const PaginationButtons: React.FC<PaginationButtonsProps> = ({ numberOfPages, currentPage, setCurrentPage }) => {
+const PaginationButtons: React.FC<PaginationButtonsProps> = ({
+  numberOfPages,
+  currentPage,
+  setCurrentPage,
+}) => {
   const getDisplayedPages = () => {
     const pages = [];
     let start, end;
@@ -36,19 +40,29 @@ const PaginationButtons: React.FC<PaginationButtonsProps> = ({ numberOfPages, cu
   return (
     <PaginationButtonsContainer>
       {currentPage > 1 && (
-        <Button isActive={false} onClick={() => setCurrentPage(currentPage - 1)}>
+        <Button
+          isActive={false}
+          onClick={() => setCurrentPage(currentPage - 1)}
+        >
           <img src={preButtonIcon} alt={'preButtonIcon'} />
         </Button>
       )}
 
       {displayedPages.map((page) => (
-        <Button key={page} isActive={currentPage === page} onClick={() => setCurrentPage(page)}>
+        <Button
+          key={page}
+          isActive={currentPage === page}
+          onClick={() => setCurrentPage(page)}
+        >
           {page}
         </Button>
       ))}
 
       {currentPage < numberOfPages && (
-        <Button isActive={false} onClick={() => setCurrentPage(currentPage + 1)}>
+        <Button
+          isActive={false}
+          onClick={() => setCurrentPage(currentPage + 1)}
+        >
           <img src={nextButtonIcon} alt={'nextButtonIcon'} />
         </Button>
       )}

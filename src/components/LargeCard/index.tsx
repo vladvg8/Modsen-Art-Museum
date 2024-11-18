@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   LargeCardContainer,
   Image,
@@ -7,7 +7,7 @@ import {
   Author,
   Status,
   TitleContainer,
-  Card
+  Card,
 } from './LargeCard.styles';
 import FavoriteButton from '../FavoriteButton';
 import notExistentImageIcon from '../../assets/images/not-existent-image-icon.svg';
@@ -18,9 +18,13 @@ const LargeCard: React.FC<CardProps> = ({
   title,
   author,
   image,
-  status,
+  status
 }) => {
   const [imageSrc, setImageSrc] = useState(image);
+
+  useEffect(() => {
+    setImageSrc(image)
+  }, [image]);
 
   return (
     <LargeCardContainer>

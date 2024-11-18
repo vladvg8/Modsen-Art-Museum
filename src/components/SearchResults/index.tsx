@@ -1,30 +1,50 @@
 import React, { useEffect, useState } from 'react';
 import Slider from './../Slider';
 import { CardProps } from '../../constants/CardProps';
-import {SearchResultsContainer} from './SearchResults.styles';
+import { SearchResultsContainer, Text } from './SearchResults.styles';
 import PaginationButtons from '../PaginationButtons';
+import { fetchArtworks, fetchShortArtworkInfo } from '../../api';
 
 export interface SearchResultsProps {
   query: string;
 }
 
-const SearchResults: React.FC<SearchResultsProps> = ({query}) => {
+const SearchResults: React.FC<SearchResultsProps> = ({ query }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  useEffect(() => {
-    console.log(currentPage)
-  }, [currentPage]);
+  const [numberOfPages, setNumberOfPages] = useState<number | null>(null);
+  const [cards, setCards] = useState<CardProps[]>([]);
+  const [loading, setLoading] = useState(false);
 
-  const cards: CardProps[] = [
-    {artworkId: 233260, title: 'Urban Villa, Berlin, Germany, Perspective', author: 'Stanley Tigerman', image: 'https://www.artic.edu/iiif/2/f2e32bf5-0b47-5bc2-5652-09b31fb141d6/full/800,/0/default.jpg', status: 'Public'},
-    {artworkId: 233260, title: 'Urban Villa, Berlin, Germany, Perspective', author: 'Stanley Tigerman', image: 'https://www.artic.edu/iiif/2/f2e32bf5-0b47-5bc2-5652-09b31fb141d6/full/800,/0/default.jpg', status: 'Public'},
-    {artworkId: 233260, title: 'Urban Villa, Berlin, Germany, Perspective', author: 'Stanley Tigerman', image: 'https://www.artic.edu/iiif/2/f2e32bf5-0b47-5bc2-5652-09b31fb141d6/full/800,/0/default.jpg', status: 'Public'}
-  ];
+  useEffect(() => {
+    setLoading(true);
+    (async () => {
+      const data = await fetchArtworks(query, currentPage, 3);
+      if (data) {
+        setNumberOfPages(data.totalPages);
+        const fetchedCards = await Promise.all(
+          data.artworksId.map((artwork: { id: number }) => fetchShortArtworkInfo(artwork.id))
+        );
+        setCards(fetchedCards.filter(Boolean) as CardProps[]);
+      }
+      setLoading(false);
+    })();
+  }, [currentPage, query]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [query]);
 
   return (
-    <SearchResultsContainer>
-      <Slider cards={cards}/>
-      <PaginationButtons numberOfPages={10} currentPage={currentPage} setCurrentPage={setCurrentPage} />
-    </SearchResultsContainer>
+    cards.length > 0 ?
+        <SearchResultsContainer>
+          <Slider cards={cards} loading={loading} />
+          <PaginationButtons
+            numberOfPages={numberOfPages || 1}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
+        </SearchResultsContainer>
+      :<Text>Nothing found</Text>
   );
 };
 
