@@ -22,7 +22,7 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Header />
+      <Header isHome={true}/>
       <HomeContainer>
         <HomeContent>
           <Title>
@@ -34,10 +34,10 @@ const Home: React.FC = () => {
 
           <SearchResultContainer>
             <SearchResultInfo>
-              <Text color={'#E0A449'} size={1} weight={400}>
+              <Text color={'#E0A449'} size={'1rem'} weight={400}>
                 Topics for you
               </Text>
-              <Text color={'#393939'} size={2} weight={400}>
+              <Text color={'#393939'} size={'2rem'} weight={400}>
                 Our special gallery
               </Text>
             </SearchResultInfo>
@@ -46,10 +46,10 @@ const Home: React.FC = () => {
 
           <OtherWorksContainer>
             <OtherWorksInfo>
-              <Text color={'#E0A449'} size={1} weight={400}>
+              <Text color={'#E0A449'} size={'1rem'} weight={400}>
                 Here some more
               </Text>
-              <Text color={'#393939'} size={2} weight={400}>
+              <Text color={'#393939'} size={'2rem'} weight={400}>
                 Other works for you
               </Text>
             </OtherWorksInfo>

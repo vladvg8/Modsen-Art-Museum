@@ -20,7 +20,10 @@ export interface SearchBarProps {
   onSearch: (query: string) => void;
 }
 
-const debounce = <T extends (...args: any[]) => void>(func: T, delay: number): T => {
+const debounce = <T extends (...args: any[]) => void>(
+  func: T,
+  delay: number
+): T => {
   let timer: NodeJS.Timeout;
   return ((...args: Parameters<T>) => {
     clearTimeout(timer);
@@ -29,7 +32,11 @@ const debounce = <T extends (...args: any[]) => void>(func: T, delay: number): T
 };
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
-  const { register, handleSubmit, formState: { errors } } = useForm<SearchFormData>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<SearchFormData>();
 
   const debouncedSearch = debounce(onSearch, 1000);
 

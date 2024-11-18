@@ -36,22 +36,22 @@ export const Button = styled.img`
 `;
 
 export const ErrorContainer = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
 `;
 
 export const ErrorIcon = styled.img`
-    width: 1.2rem;
-    height: 1.2rem;
+  width: 1.2rem;
+  height: 1.2rem;
 `;
 
 export const ErrorMessage = styled.p`
-    font-size: 1rem;
-    color: #EF5350;
-    margin: 0;
-    @media (max-width: 768px) {
-        font-size: 0.8rem;
-    }
+  font-size: 1rem;
+  color: #ef5350;
+  margin: 0;
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+  }
 `;

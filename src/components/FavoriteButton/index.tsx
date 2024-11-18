@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FavoriteButtonContent, Bookmark } from './FavoriteButton.styles';
-import inactiveBookmarkIcon from './../../assets/images/inactive-bookmark-icon.svg';
+import bookmarkIcon from '../../assets/images/bookmark-icon.svg';
 import useLocalStorageIds from '../../hooks/useLocalStorageIds';
 
 export interface FavoriteButtonProps {
@@ -8,7 +8,8 @@ export interface FavoriteButtonProps {
 }
 
 const FavoriteButton: React.FC<FavoriteButtonProps> = ({ artworkId }) => {
-  const { ids, addId, removeId, hasId } = useLocalStorageIds('favoriteArtworks');
+  const { ids, addId, removeId, hasId } =
+    useLocalStorageIds('favoriteArtworks');
   const [isFavorite, setIsFavorite] = useState<boolean>(hasId(artworkId));
 
   useEffect(() => {
@@ -26,7 +27,7 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({ artworkId }) => {
 
   return (
     <FavoriteButtonContent isFavorite={isFavorite} onClick={toggleFavorite}>
-      <Bookmark src={inactiveBookmarkIcon} alt="Bookmark" />
+      <Bookmark src={bookmarkIcon} alt="Bookmark" />
     </FavoriteButtonContent>
   );
 };

@@ -9,6 +9,7 @@ export const LargeCardContainer = styled.div`
 export const Image = styled.img`
   width: clamp(250px, 30vw, 387px);
   height: clamp(307px, 33vw, 444px);
+  cursor: pointer;
 `;
 
 export const InfoContainer = styled.div`

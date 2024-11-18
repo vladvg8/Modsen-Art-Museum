@@ -22,7 +22,9 @@ const SearchResults: React.FC<SearchResultsProps> = ({ query }) => {
       if (data) {
         setNumberOfPages(data.totalPages);
         const fetchedCards = await Promise.all(
-          data.artworksId.map((artwork: { id: number }) => fetchShortArtworkInfo(artwork.id))
+          data.artworksId.map((artwork: { id: number }) =>
+            fetchShortArtworkInfo(artwork.id)
+          )
         );
         setCards(fetchedCards.filter(Boolean) as CardProps[]);
       }
@@ -34,17 +36,17 @@ const SearchResults: React.FC<SearchResultsProps> = ({ query }) => {
     setCurrentPage(1);
   }, [query]);
 
-  return (
-    cards.length > 0 ?
-        <SearchResultsContainer>
-          <Slider cards={cards} loading={loading} />
-          <PaginationButtons
-            numberOfPages={numberOfPages || 1}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-          />
-        </SearchResultsContainer>
-      :<Text>Nothing found</Text>
+  return cards.length > 0 ? (
+    <SearchResultsContainer>
+      <Slider cards={cards} loading={loading} />
+      <PaginationButtons
+        numberOfPages={numberOfPages || 1}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
+    </SearchResultsContainer>
+  ) : (
+    <Text>Nothing found</Text>
   );
 };
 

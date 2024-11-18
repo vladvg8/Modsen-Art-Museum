@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
+import Favorites from './pages/Favorites';
 
 const Art: React.FC = () => <h1>Страница с искусством</h1>;
-const Favorites: React.FC = () => <h1>Избранное</h1>;
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

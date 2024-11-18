@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const HomeContainer = styled.div`
+export const FavoritesContainer = styled.div`
   width: 100%;
   background: #fafafa;
   display: flex;
@@ -8,7 +8,7 @@ export const HomeContainer = styled.div`
   justify-content: center;
 `;
 
-export const HomeContent = styled.div`
+export const FavoritesContent = styled.div`
   width: 100%;
   max-width: 1280px;
   padding: 0 2rem;
@@ -21,25 +21,30 @@ export const HomeContent = styled.div`
   }
 `;
 
-export const Title = styled.h1`
-  margin-top: clamp(60px, 10vw, 120px);
+export const Title = styled.h1<{marginTop: string, color: string}>`
+  margin-top: ${({marginTop}) => marginTop};
   margin-bottom: 0;
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
   text-align: center;
   max-width: 684px;
-  color: #393939;
-
+  color: ${({color}) => color};
+  display: flex;
+  align-items: center;
+  gap: 5px;
+    
   @media (max-width: 768px) {
     font-size: 2.5rem;
   }
 `;
 
-export const HighlightedText = styled.span<{ color: string }>`
-  color: ${({ color }) => color};
+export const Bookmark = styled.img`
+    margin-top: 0.3rem;
+    width: clamp(2.5rem, 5vw, 4rem);
+    height: clamp(2.5rem, 5vw, 4rem);
 `;
 
-export const OtherWorksContainer = styled.div`
+export const FavoriteWorksContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,20 +53,7 @@ export const OtherWorksContainer = styled.div`
   width: 100%;
 `;
 
-export const OtherWorksInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-export const Text = styled.p<{ color: string; size: string; weight: number }>`
-  margin: 0;
-  color: ${({ color }) => color};
-  font-size: ${({ size }) => size};
-  font-weight: ${({ weight }) => weight};
-`;
-
-export const OtherWorks = styled.div`
+export const FavoriteWorks = styled.div`
   width: 100%;
   margin-top: clamp(20px, 2vw, 40px);
   display: grid;
@@ -76,16 +68,16 @@ export const OtherWorks = styled.div`
   box-sizing: border-box;
 `;
 
-export const SearchResultContainer = styled.div`
+export const WorksInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: clamp(60px, 10vw, 120px);
-  width: 100%;
 `;
 
-export const SearchResultInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+export const Text = styled.p<{ color: string; size: string; weight: number; marginTop?:string }>`
+  margin: 0;
+  margin-top: ${({marginTop}) => marginTop ? marginTop : 0};
+  color: ${({ color }) => color};
+  font-size: ${({ size }) => size};
+  font-weight: ${({ weight }) => weight};
 `;

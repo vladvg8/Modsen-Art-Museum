@@ -1,6 +1,10 @@
 import { CardProps } from '../constants/CardProps';
 
-export const fetchArtworks = async (query: string, page: number, limit: number) => {
+export const fetchArtworks = async (
+  query: string,
+  page: number,
+  limit: number
+) => {
   const url = new URL('https://api.artic.edu/api/v1/artworks/search');
   url.searchParams.append('q', query);
   url.searchParams.append('page', page.toString());
@@ -28,22 +32,44 @@ export const fetchArtworks = async (query: string, page: number, limit: number) 
   }
 };
 
-export const fetchShortArtworkInfo = async (id: number): Promise<CardProps | null> => {
+export const fetchShortArtworkInfo = async (
+  id: number
+): Promise<CardProps | null> => {
   try {
-    const url = new URL(`https://api.artic.edu/api/v1/artworks/${id}`);
-    url.searchParams.append('fields', 'id,title,artist_title,is_public_domain,image_id');
-    const response = await fetch(url.toString());
-    if (!response.ok) {
-      throw new Error(`Error: ${response.status} ${response.statusText}`);
+    const infoUrl = new URL(`https://api.artic.edu/api/v1/artworks/${id}`);
+    infoUrl.searchParams.append(
+      'fields',
+      'id,title,artist_title,is_public_domain,image_id'
+    );
+
+    const infoResponse = await fetch(infoUrl.toString());
+    if (!infoResponse.ok) {
+      throw new Error(`Error: ${infoResponse.status} ${infoResponse.statusText}`);
     }
-    const data = await response.json();
+
+    const infoData = await infoResponse.json();
+    const imageId = infoData.data.image_id;
+
+    let imageObjectURL: string | undefined = undefined;
+
+    if (imageId) {
+      const imageUrl = `https://www.artic.edu/iiif/2/${imageId}/full/800,/0/default.jpg`;
+      const imageResponse = await fetch(imageUrl);
+      if (!imageResponse.ok) {
+        throw new Error(
+          `Error fetching image: ${imageResponse.status} ${imageResponse.statusText}`
+        );
+      }
+      const imageBlob = await imageResponse.blob();
+      imageObjectURL = URL.createObjectURL(imageBlob);
+    }
 
     return {
       artworkId: id,
-      title: data.data.title,
-      author: data.data.artist_title || 'Unknown',
-      image: `https://www.artic.edu/iiif/2/${data.data.image_id}/full/800,/0/default.jpg`,
-      status: data.data.is_public_domain ? 'Public' : 'Private',
+      title: infoData.data.title,
+      author: infoData.data.artist_title || 'Unknown',
+      image: imageObjectURL,
+      status: infoData.data.is_public_domain ? 'Public' : 'Private',
     };
   } catch (error) {
     console.error('Error fetching artwork:', error);

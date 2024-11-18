@@ -18,12 +18,12 @@ const LargeCard: React.FC<CardProps> = ({
   title,
   author,
   image,
-  status
+  status,
 }) => {
   const [imageSrc, setImageSrc] = useState(image);
 
   useEffect(() => {
-    setImageSrc(image)
+    setImageSrc(image ?? notExistentImageIcon);
   }, [image]);
 
   return (

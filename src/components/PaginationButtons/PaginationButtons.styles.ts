@@ -19,4 +19,5 @@ export const Button = styled.button<{ isActive: boolean }>`
   color: ${({ isActive }) => (isActive ? 'white' : '#393939')};
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+    user-select: none;
 `;
