@@ -128,7 +128,7 @@ const Home: React.FC = () => {
               />
               <SmallCard
                 artworkId={111377}
-                title={'For Sunday\'s Dinner'}
+                title={"For Sunday's Dinner"}
                 author={'William Michael Harnett'}
                 image={
                   'https://www.artic.edu/iiif/2/3cea045a-92d6-36cf-1508-2c99ea740218/full/80,/0/default.jpg'

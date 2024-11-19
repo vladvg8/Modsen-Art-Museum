@@ -24,7 +24,7 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({ artworkId }) => {
   };
 
   return (
-    <FavoriteButtonContent isFavorite={isFavorite} onClick={toggleFavorite}>
+    <FavoriteButtonContent isfavorite={isFavorite ? 'true' : 'false'} onClick={toggleFavorite} role="button">
       <Bookmark src={bookmarkIcon} alt="Bookmark" />
     </FavoriteButtonContent>
   );
