@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
-import Header from 'components/Header'
+import Header from 'components/Header';
 
 describe('Header', () => {
   it('renders correctly with logo and navigation links', () => {

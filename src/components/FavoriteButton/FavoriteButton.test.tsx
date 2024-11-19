@@ -1,12 +1,17 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { LocalStorageProvider, useLocalStorage } from 'contexts/LocalStorageContext';
+import {
+  LocalStorageProvider,
+  useLocalStorage,
+} from 'contexts/LocalStorageContext';
 import FavoriteButton from 'components/FavoriteButton';
 
 jest.mock('contexts/LocalStorageContext', () => ({
   useLocalStorage: jest.fn(),
-  LocalStorageProvider: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+  LocalStorageProvider: ({ children }: { children: React.ReactNode }) => (
+    <div>{children}</div>
+  ),
 }));
 
 describe('FavoriteButton', () => {

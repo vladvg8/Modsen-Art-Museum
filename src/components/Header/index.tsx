@@ -64,7 +64,11 @@ const Header: React.FC<HeaderProps> = ({ isHome = false }) => {
             &#9776;
           </BurgerIcon>
 
-          <BurgerMenu ref={menuRef} isOpen={isMenuOpen} data-testid="burger-menu">
+          <BurgerMenu
+            ref={menuRef}
+            isOpen={isMenuOpen}
+            data-testid="burger-menu"
+          >
             {!isHome && (
               <Link to="/" style={{ textDecoration: 'none' }}>
                 <NavigationLink>
