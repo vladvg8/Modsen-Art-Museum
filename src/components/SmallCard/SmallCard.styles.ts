@@ -26,6 +26,7 @@ export const InfoContainer = styled.div`
   flex-grow: 1;
   height: 80px;
   width: calc(100% - clamp(8px, 1vw, 16px) * 2 - 80px - clamp(50px, 5vw, 59px));
+  cursor: pointer;
 `;
 
 export const TitleContainer = styled.div`

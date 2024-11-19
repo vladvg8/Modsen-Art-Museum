@@ -22,7 +22,7 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Header isHome={true}/>
+      <Header isHome={true} />
       <HomeContainer>
         <HomeContent>
           <Title>

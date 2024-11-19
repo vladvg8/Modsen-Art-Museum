@@ -63,20 +63,33 @@ const Favorites: React.FC = () => {
                 Your favorites list
               </Text>
             </WorksInfo>
-            {loading ? (<Text color={'#393939'} size={'1.5rem'} weight={400}>
-              Loading...
-            </Text>) : cards.length > 0 ? ( <FavoriteWorks>{cards.map((card) => (
-              <SmallCard
-                key={card.artworkId}
-                artworkId={card.artworkId}
-                title={card.title}
-                author={card.author}
-                image={card.image}
-                status={card.status}
-              />
-            ))}</FavoriteWorks>) : <Text color={'#393939'} size={'1.5rem'} weight={400} marginTop={'clamp(20px, 2vw, 40px)'}>
-              No favorites found
-            </Text>}
+            {loading ? (
+              <Text color={'#393939'} size={'1.5rem'} weight={400}>
+                Loading...
+              </Text>
+            ) : cards.length > 0 ? (
+              <FavoriteWorks>
+                {cards.map((card) => (
+                  <SmallCard
+                    key={card.artworkId}
+                    artworkId={card.artworkId}
+                    title={card.title}
+                    author={card.author}
+                    image={card.image}
+                    status={card.status}
+                  />
+                ))}
+              </FavoriteWorks>
+            ) : (
+              <Text
+                color={'#393939'}
+                size={'1.5rem'}
+                weight={400}
+                marginTop={'clamp(20px, 2vw, 40px)'}
+              >
+                No favorites found
+              </Text>
+            )}
           </FavoriteWorksContainer>
         </FavoritesContent>
       </FavoritesContainer>

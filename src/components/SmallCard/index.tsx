@@ -11,6 +11,7 @@ import {
 import FavoriteButton from '../FavoriteButton';
 import notExistentImageIcon from './../../assets/images/not-existent-image-icon.svg';
 import { CardProps } from '../../constants/CardProps';
+import { useNavigate } from 'react-router-dom';
 
 const SmallCard: React.FC<CardProps> = ({
   artworkId,
@@ -20,6 +21,11 @@ const SmallCard: React.FC<CardProps> = ({
   status,
 }) => {
   const [imageSrc, setImageSrc] = useState(image);
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/art?id=${artworkId}`);
+  };
 
   return (
     <Card>
@@ -27,8 +33,9 @@ const SmallCard: React.FC<CardProps> = ({
         src={imageSrc}
         alt={title}
         onError={() => setImageSrc(notExistentImageIcon)}
+        onClick={() => handleCardClick()}
       />
-      <InfoContainer>
+      <InfoContainer onClick={() => handleCardClick()}>
         <TitleContainer>
           <Title>{title}</Title>
           <Author>{author}</Author>

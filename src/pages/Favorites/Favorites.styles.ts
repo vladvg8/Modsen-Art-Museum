@@ -21,27 +21,27 @@ export const FavoritesContent = styled.div`
   }
 `;
 
-export const Title = styled.h1<{marginTop: string, color: string}>`
-  margin-top: ${({marginTop}) => marginTop};
+export const Title = styled.h1<{ marginTop: string; color: string }>`
+  margin-top: ${({ marginTop }) => marginTop};
   margin-bottom: 0;
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
   text-align: center;
   max-width: 684px;
-  color: ${({color}) => color};
+  color: ${({ color }) => color};
   display: flex;
   align-items: center;
   gap: 5px;
-    
+
   @media (max-width: 768px) {
     font-size: 2.5rem;
   }
 `;
 
 export const Bookmark = styled.img`
-    margin-top: 0.3rem;
-    width: clamp(2.5rem, 5vw, 4rem);
-    height: clamp(2.5rem, 5vw, 4rem);
+  margin-top: 0.3rem;
+  width: clamp(2.5rem, 5vw, 4rem);
+  height: clamp(2.5rem, 5vw, 4rem);
 `;
 
 export const FavoriteWorksContainer = styled.div`
@@ -74,9 +74,14 @@ export const WorksInfo = styled.div`
   align-items: center;
 `;
 
-export const Text = styled.p<{ color: string; size: string; weight: number; marginTop?:string }>`
+export const Text = styled.p<{
+  color: string;
+  size: string;
+  weight: number;
+  marginTop?: string;
+}>`
   margin: 0;
-  margin-top: ${({marginTop}) => marginTop ? marginTop : 0};
+  margin-top: ${({ marginTop }) => (marginTop ? marginTop : 0)};
   color: ${({ color }) => color};
   font-size: ${({ size }) => size};
   font-weight: ${({ weight }) => weight};
