@@ -100,3 +100,31 @@ export const OverviewContainer = styled.div`
   gap: 1rem;
   margin-top: 2rem;
 `;
+
+export const Skeleton = styled.div<{
+  width: string;
+  height: string;
+  marginTop?: string;
+}>`
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
+  margin-top: ${({ marginTop }) => marginTop || '0'};
+  background: linear-gradient(
+    90deg,
+    rgba(200, 200, 200, 0.1) 25%,
+    rgba(200, 200, 200, 0.3) 50%,
+    rgba(200, 200, 200, 0.1) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+`;

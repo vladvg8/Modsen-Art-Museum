@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Slider from './../Slider';
 import { CardProps } from '../../constants/CardProps';
-import { SearchResultsContainer, Text } from './SearchResults.styles';
+import { SearchResultsContainer } from './SearchResults.styles';
 import PaginationButtons from '../PaginationButtons';
 import { fetchArtworks, fetchShortArtworkInfo } from '../../api';
+import SortDropdown from '../SortDropdown';
 
 export interface SearchResultsProps {
   query: string;
@@ -14,6 +15,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ query }) => {
   const [numberOfPages, setNumberOfPages] = useState<number | null>(null);
   const [cards, setCards] = useState<CardProps[]>([]);
   const [loading, setLoading] = useState(false);
+  const [sortOption, setSortOption] = useState('Relevance');
 
   useEffect(() => {
     setLoading(true);
@@ -30,24 +32,21 @@ const SearchResults: React.FC<SearchResultsProps> = ({ query }) => {
       }
       setLoading(false);
     })();
-  }, [currentPage, query]);
+  }, [currentPage, query, sortOption]);
 
   useEffect(() => {
     setCurrentPage(1);
   }, [query]);
 
-  return cards.length > 0 ? (
-    <SearchResultsContainer>
-      <Slider cards={cards} loading={loading} />
-      <PaginationButtons
-        numberOfPages={numberOfPages || 1}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-      />
-    </SearchResultsContainer>
-  ) : (
-    <Text>Nothing found</Text>
-  );
+  return (<SearchResultsContainer>
+    {cards.length > 0 && <SortDropdown onSortChange={setSortOption} />}
+    <Slider cards={cards} loading={loading} />
+    {cards.length > 0 && <PaginationButtons
+      numberOfPages={numberOfPages || 1}
+      currentPage={currentPage}
+      setCurrentPage={setCurrentPage}
+    />}
+  </SearchResultsContainer>)
 };
 
 export default SearchResults;

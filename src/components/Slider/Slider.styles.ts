@@ -11,3 +11,11 @@ export const SliderContainer = styled.div`
     display: none;
   }
 `;
+
+export const Text = styled.p`
+  color: #393939;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-top: clamp(20px, 2vw, 40px);
+    text-align: center;
+`;

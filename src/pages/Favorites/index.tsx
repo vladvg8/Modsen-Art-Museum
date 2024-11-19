@@ -64,7 +64,7 @@ const Favorites: React.FC = () => {
               </Text>
             </WorksInfo>
             {loading ? (
-              <Text color={'#393939'} size={'1.5rem'} weight={400}>
+              <Text color={'#393939'} size={'1.5rem'} weight={400} marginTop={'1rem'}>
                 Loading...
               </Text>
             ) : cards.length > 0 ? (
