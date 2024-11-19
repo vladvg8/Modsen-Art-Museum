@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Header from './../../components/Header';
-import Footer from '../../components/Footer';
+import Header from 'components/Header';
+import Footer from 'components/Footer';
 import {
   FavoritesContainer,
   FavoritesContent,
@@ -11,11 +11,11 @@ import {
   Text,
   WorksInfo,
 } from './Favorites.styles';
-import bookmarkIcon from './../../assets/images/bookmark-icon.svg';
-import SmallCard from '../../components/SmallCard';
-import { fetchShortArtworkInfo } from '../../api';
-import { CardProps } from '../../constants/CardProps';
-import { useLocalStorage } from '../../contexts/LocalStorageContext';
+import bookmarkIcon from 'assets/images/bookmark-icon.svg';
+import SmallCard from 'components/SmallCard';
+import { fetchShortArtworkInfo } from 'api';
+import { CardProps } from 'constants/CardProps';
+import { useLocalStorage } from 'contexts/LocalStorageContext';
 
 const Favorites: React.FC = () => {
   const { ids } = useLocalStorage();

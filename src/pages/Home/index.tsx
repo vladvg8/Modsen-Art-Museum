@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Header from './../../components/Header';
-import Footer from './../../components/Footer';
-import SearchBar from './../../components/SearchBar';
-import SmallCard from './../../components/SmallCard';
-import SearchResults from '../../components/SearchResults';
+import Header from 'components/Header';
+import Footer from 'components/Footer';
+import SearchBar from 'components/SearchBar';
+import SmallCard from 'components/SmallCard';
+import SearchResults from 'components/SearchResults';
 import {
   Title,
   HomeContainer,

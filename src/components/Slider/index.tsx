@@ -1,8 +1,8 @@
 import React from 'react';
-import { CardProps } from '../../constants/CardProps';
+import { CardProps } from 'constants/CardProps';
 import { SliderContainer, Text } from './Slider.styles';
-import LargeCard from '../LargeCard';
-import CardLoader from './../CardLoader';
+import LargeCard from 'components/LargeCard';
+import CardLoader from 'components/CardLoader';
 
 export interface SliderProps {
   cards: CardProps[];

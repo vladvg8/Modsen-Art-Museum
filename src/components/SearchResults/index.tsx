@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Slider from './../Slider';
-import { CardProps } from '../../constants/CardProps';
+import Slider from 'components/Slider';
+import { CardProps } from 'constants/CardProps';
 import { SearchResultsContainer } from './SearchResults.styles';
-import PaginationButtons from '../PaginationButtons';
-import { fetchArtworks, fetchShortArtworkInfo } from '../../api';
-import SortDropdown from '../SortDropdown';
+import PaginationButtons from 'components/PaginationButtons';
+import { fetchArtworks, fetchShortArtworkInfo } from 'api';
+import SortDropdown from 'components/SortDropdown';
 
 export interface SearchResultsProps {
   query: string;
@@ -26,7 +26,13 @@ const SearchResults: React.FC<SearchResultsProps> = ({ query }) => {
       try {
         const formattedSortOption = mapSortOptionToApiValue(sortOption);
 
-        const data = await fetchArtworks(query, currentPage, 3, formattedSortOption, signal);
+        const data = await fetchArtworks(
+          query,
+          currentPage,
+          3,
+          formattedSortOption,
+          signal
+        );
         if (data) {
           setNumberOfPages(data.totalPages);
 
@@ -55,11 +61,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ query }) => {
 
   return (
     <SearchResultsContainer>
-      {cards.length > 0 && (
-        <SortDropdown
-          onSortChange={setSortOption}
-        />
-      )}
+      {cards.length > 0 && <SortDropdown onSortChange={setSortOption} />}
       <Slider cards={cards} loading={loading} />
       {cards.length > 0 && (
         <PaginationButtons

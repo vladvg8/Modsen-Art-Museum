@@ -9,8 +9,8 @@ import {
   ErrorMessage,
   ErrorIcon,
 } from './SearchBar.styles';
-import searchIcon from './../../assets/images/search-icon.svg';
-import errorIcon from './../../assets/images/error-icon.svg';
+import searchIcon from 'assets/images/search-icon.svg';
+import errorIcon from 'assets/images/error-icon.svg';
 
 export interface SearchFormData {
   query: string;

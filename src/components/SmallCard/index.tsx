@@ -9,8 +9,8 @@ import {
   Status,
 } from './SmallCard.styles';
 import FavoriteButton from '../FavoriteButton';
-import notExistentImageIcon from './../../assets/images/not-existent-image-icon.svg';
-import { CardProps } from '../../constants/CardProps';
+import notExistentImageIcon from 'assets/images/not-existent-image-icon.svg';
+import { CardProps } from 'constants/CardProps';
 import { useNavigate } from 'react-router-dom';
 
 const SmallCard: React.FC<CardProps> = ({

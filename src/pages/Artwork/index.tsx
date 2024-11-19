@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import Header from './../../components/Header';
-import Footer from './../../components/Footer';
+import Header from 'components/Header';
+import Footer from 'components/Footer';
 import {
   ArtworkContainer,
   ArtworkContent,
@@ -16,9 +16,9 @@ import {
   FavoriteButtonContainer,
   Skeleton,
 } from './Artwork.styles';
-import notExistentImageIcon from './../../assets/images/not-existent-image-icon.svg';
-import { fetchArtwork } from '../../api';
-import FavoriteButton from '../../components/FavoriteButton';
+import notExistentImageIcon from 'assets/images/not-existent-image-icon.svg';
+import { fetchArtwork } from 'api';
+import FavoriteButton from 'components/FavoriteButton';
 
 const Artwork: React.FC = () => {
   const [loading, setLoading] = useState(true);

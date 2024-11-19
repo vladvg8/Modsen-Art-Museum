@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FooterContainer, FooterContent, Logo } from './Footer.styles';
-import museumLogoLight from './../../assets/images/museum-logo-light.svg';
-import modsenLogo from './../../assets/images/modsen-logo.svg';
+import museumLogoLight from 'assets/images/museum-logo-light.svg';
+import modsenLogo from 'assets/images/modsen-logo.svg';
 
 const Footer: React.FC = () => {
   return (

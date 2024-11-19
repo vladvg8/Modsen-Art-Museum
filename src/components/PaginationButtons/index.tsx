@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, PaginationButtonsContainer } from './PaginationButtons.styles';
-import nextButtonIcon from './../../assets/images/next-button-icon.svg';
-import preButtonIcon from './../../assets/images/pre-button-icon.svg';
+import nextButtonIcon from 'assets/images/next-button-icon.svg';
+import preButtonIcon from 'assets/images/pre-button-icon.svg';
 
 export interface PaginationButtonsProps {
   numberOfPages: number;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FavoriteButtonContent, Bookmark } from './FavoriteButton.styles';
-import bookmarkIcon from '../../assets/images/bookmark-icon.svg';
-import { useLocalStorage } from '../../contexts/LocalStorageContext';
+import bookmarkIcon from 'assets/images/bookmark-icon.svg';
+import { useLocalStorage } from 'contexts/LocalStorageContext';
 
 export interface FavoriteButtonProps {
   artworkId: number;

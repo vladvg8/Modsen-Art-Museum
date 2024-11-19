@@ -10,10 +10,10 @@ import {
   BurgerIcon,
   BurgerMenu,
 } from './Header.styles';
-import museumLogoDark from './../../assets/images/museum-logo-dark.svg';
-import headerFavoriteIcon from './../../assets/images/header-favorite-icon.svg';
-import headerHomeIcon from './../../assets/images/header-home-icon.svg';
-import useOutsideClick from './../../hooks/useOutsideClick';
+import museumLogoDark from 'assets/images/museum-logo-dark.svg';
+import headerFavoriteIcon from 'assets/images/header-favorite-icon.svg';
+import headerHomeIcon from 'assets/images/header-home-icon.svg';
+import useOutsideClick from 'hooks/useOutsideClick';
 
 export interface HeaderProps {
   isHome?: boolean;

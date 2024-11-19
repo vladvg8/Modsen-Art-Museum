@@ -1,4 +1,4 @@
-import { CardProps } from '../constants/CardProps';
+import { CardProps } from 'constants/CardProps';
 
 export const fetchArtworks = async (
   query: string,

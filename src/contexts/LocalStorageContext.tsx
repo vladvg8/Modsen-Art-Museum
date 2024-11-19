@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from 'react';
 
 interface LocalStorageContextType {
   ids: number[];
@@ -12,7 +18,9 @@ interface LocalStorageProviderProps {
   children: ReactNode;
 }
 
-export const LocalStorageProvider: React.FC<LocalStorageProviderProps> = ({ children }) => {
+export const LocalStorageProvider: React.FC<LocalStorageProviderProps> = ({
+  children,
+}) => {
   const [ids, setIds] = useState<number[]>(() => {
     const storedIds = localStorage.getItem('favoriteArtworks');
     return storedIds ? JSON.parse(storedIds) : [];
@@ -54,7 +62,9 @@ export const LocalStorageProvider: React.FC<LocalStorageProviderProps> = ({ chil
 export const useLocalStorage = () => {
   const context = useContext(LocalStorageContext);
   if (!context) {
-    throw new Error('useLocalStorage must be used within a LocalStorageProvider');
+    throw new Error(
+      'useLocalStorage must be used within a LocalStorageProvider'
+    );
   }
   return context;
 };

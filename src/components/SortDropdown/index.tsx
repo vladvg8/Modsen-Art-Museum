@@ -13,11 +13,7 @@ const SortDropdown: React.FC<SortDropdownProps> = ({ onSortChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState('Relevance');
 
-  const sortOptions = [
-    'Relevance',
-    'Title',
-    'Artist'
-  ];
+  const sortOptions = ['Relevance', 'Title', 'Artist'];
 
   const handleOptionClick = (option: string) => {
     setSelectedOption(option);
