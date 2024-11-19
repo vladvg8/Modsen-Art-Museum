@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FavoriteButtonContent, Bookmark } from './FavoriteButton.styles';
 import bookmarkIcon from '../../assets/images/bookmark-icon.svg';
-import useLocalStorageIds from '../../hooks/useLocalStorageIds';
+import { useLocalStorage } from '../../contexts/LocalStorageContext';
 
 export interface FavoriteButtonProps {
   artworkId: number;
 }
 
 const FavoriteButton: React.FC<FavoriteButtonProps> = ({ artworkId }) => {
-  const { ids, addId, removeId, hasId } =
-    useLocalStorageIds('favoriteArtworks');
-  const [isFavorite, setIsFavorite] = useState<boolean>(hasId(artworkId));
+  const { ids, addId, removeId } = useLocalStorage();
+  const [isFavorite, setIsFavorite] = useState(() => ids.includes(artworkId));
 
   useEffect(() => {
-    setIsFavorite(hasId(artworkId));
-  }, [artworkId, ids, hasId]);
+    setIsFavorite(ids.includes(artworkId));
+  }, [ids, artworkId]);
 
   const toggleFavorite = () => {
     if (isFavorite) {
@@ -22,7 +21,6 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({ artworkId }) => {
     } else {
       addId(artworkId);
     }
-    setIsFavorite(!isFavorite);
   };
 
   return (

@@ -10,22 +10,27 @@ export interface SliderProps {
 }
 
 const Slider: React.FC<SliderProps> = ({ cards, loading }) => {
-  return (
-    loading
-      ? (<SliderContainer>{Array.from({ length: 3 }).map((_, index) => (
+  return loading ? (
+    <SliderContainer>
+      {Array.from({ length: 3 }).map((_, index) => (
         <CardLoader key={index} />
-      ))}</SliderContainer>)
-      : cards.length > 0 ? ( <SliderContainer>{
-        cards.map((card) => (
-          <LargeCard
-            key={card.artworkId}
-            artworkId={card.artworkId}
-            title={card.title}
-            author={card.author}
-            image={card.image}
-            status={card.status}
-          />
-        ))}</SliderContainer>) : <Text>Nothing found</Text>
+      ))}
+    </SliderContainer>
+  ) : cards.length > 0 ? (
+    <SliderContainer>
+      {cards.map((card) => (
+        <LargeCard
+          key={card.artworkId}
+          artworkId={card.artworkId}
+          title={card.title}
+          author={card.author}
+          image={card.image}
+          status={card.status}
+        />
+      ))}
+    </SliderContainer>
+  ) : (
+    <Text>Nothing found</Text>
   );
 };
 

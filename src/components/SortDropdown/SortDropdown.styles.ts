@@ -6,16 +6,16 @@ export const DropdownContainer = styled.div`
 `;
 
 export const DropdownButton = styled.button`
-    margin-left: auto;
-    background-color: transparent;
-    border: none;
-    padding: 10px;
-    font-size: 1rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #0022ff;
+  margin-left: auto;
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #0022ff;
 `;
 
 export const DropdownMenu = styled.ul`
@@ -29,7 +29,7 @@ export const DropdownMenu = styled.ul`
   list-style: none;
   z-index: 1000;
   min-width: 160px;
-    border-radius: 1rem;
+  border-radius: 1rem;
 `;
 
 export const DropdownMenuItem = styled.li`

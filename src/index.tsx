@@ -6,19 +6,22 @@ import Home from './pages/Home';
 import Favorites from './pages/Favorites';
 import Artwork from './pages/Artwork';
 import ErrorBoundary from './components/ErrorBoundary';
+import { LocalStorageProvider } from './contexts/LocalStorageContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <ErrorBoundary>
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/art" element={<Artwork />} />
-        <Route path="/favorite" element={<Favorites />} />
-        <Route path="*" element={<h1>404</h1>} />
-      </Routes>
-    </Router>
+    <LocalStorageProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/art" element={<Artwork />} />
+          <Route path="/favorite" element={<Favorites />} />
+          <Route path="*" element={<h1>404</h1>} />
+        </Routes>
+      </Router>
+    </LocalStorageProvider>
   </ErrorBoundary>
 );

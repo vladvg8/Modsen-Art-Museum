@@ -3,24 +3,26 @@ import { CardProps } from '../constants/CardProps';
 export const fetchArtworks = async (
   query: string,
   page: number,
-  limit: number
+  limit: number,
+  sort: string | null,
+  signal?: AbortSignal
 ) => {
   const url = new URL('https://api.artic.edu/api/v1/artworks/search');
   url.searchParams.append('q', query);
   url.searchParams.append('page', page.toString());
   url.searchParams.append('limit', limit.toString());
+  if (sort) {
+    url.searchParams.append('sort', sort);
+  }
 
   try {
-    const response = await fetch(url.toString());
+    const response = await fetch(url.toString(), { signal });
     if (!response.ok) {
       throw new Error(`Error: ${response.status} ${response.statusText}`);
     }
 
     const data = await response.json();
-
-    const artworksId = data.data.map((item: any) => ({
-      id: item.id,
-    }));
+    const artworksId = data.data.map((item: any) => ({ id: item.id }));
 
     return {
       totalPages: data.pagination.total_pages,
@@ -33,7 +35,8 @@ export const fetchArtworks = async (
 };
 
 export const fetchShortArtworkInfo = async (
-  id: number
+  id: number,
+  signal?: AbortSignal
 ): Promise<CardProps | null> => {
   try {
     const infoUrl = new URL(`https://api.artic.edu/api/v1/artworks/${id}`);
@@ -42,7 +45,7 @@ export const fetchShortArtworkInfo = async (
       'id,title,artist_title,is_public_domain,image_id'
     );
 
-    const infoResponse = await fetch(infoUrl.toString());
+    const infoResponse = await fetch(infoUrl.toString(), { signal });
     if (!infoResponse.ok) {
       throw new Error(
         `Error: ${infoResponse.status} ${infoResponse.statusText}`
@@ -56,14 +59,11 @@ export const fetchShortArtworkInfo = async (
 
     if (imageId) {
       const imageUrl = `https://www.artic.edu/iiif/2/${imageId}/full/800,/0/default.jpg`;
-      const imageResponse = await fetch(imageUrl);
-      if (!imageResponse.ok) {
-        throw new Error(
-          `Error fetching image: ${imageResponse.status} ${imageResponse.statusText}`
-        );
+      const imageResponse = await fetch(imageUrl, { signal });
+      if (imageResponse.ok) {
+        const imageBlob = await imageResponse.blob();
+        imageObjectURL = URL.createObjectURL(imageBlob);
       }
-      const imageBlob = await imageResponse.blob();
-      imageObjectURL = URL.createObjectURL(imageBlob);
     }
 
     return {
@@ -74,7 +74,7 @@ export const fetchShortArtworkInfo = async (
       status: infoData.data.is_public_domain ? 'Public' : 'Private',
     };
   } catch (error) {
-    console.error('Error fetching artwork:', error);
+    console.error('Error fetching artworks:', error);
     return null;
   }
 };

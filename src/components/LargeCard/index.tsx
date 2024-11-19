@@ -15,12 +15,12 @@ import { CardProps } from '../../constants/CardProps';
 import { useNavigate } from 'react-router-dom';
 
 const LargeCard: React.FC<CardProps> = ({
-  artworkId,
-  title,
-  author,
-  image,
-  status,
-}) => {
+                                          artworkId,
+                                          title,
+                                          author,
+                                          image,
+                                          status,
+                                        }) => {
   const [imageSrc, setImageSrc] = useState(image);
   const navigate = useNavigate();
 

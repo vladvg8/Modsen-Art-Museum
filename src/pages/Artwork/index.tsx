@@ -51,8 +51,16 @@ const Artwork: React.FC = () => {
               <InfoContainer>
                 <Info>
                   <Skeleton width="clamp(150px, 40vw, 400px)" height="2rem" />
-                  <Skeleton width="clamp(150px, 40vw, 400px)" height="2rem" marginTop="2rem" />
-                  <Skeleton width="clamp(150px, 40vw, 400px)" height="2rem" marginTop="1rem" />
+                  <Skeleton
+                    width="clamp(150px, 40vw, 400px)"
+                    height="2rem"
+                    marginTop="2rem"
+                  />
+                  <Skeleton
+                    width="clamp(150px, 40vw, 400px)"
+                    height="2rem"
+                    marginTop="1rem"
+                  />
                 </Info>
                 <Overview>
                   <Skeleton width="30%" height="2rem" />

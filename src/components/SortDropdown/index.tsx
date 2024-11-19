@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-import {DropdownContainer, DropdownButton, DropdownMenu, DropdownMenuItem} from './SortDropdown.styles'
+import {
+  DropdownContainer,
+  DropdownButton,
+  DropdownMenu,
+  DropdownMenuItem,
+} from './SortDropdown.styles';
 interface SortDropdownProps {
   onSortChange: (sortOption: string) => void;
 }
@@ -10,10 +15,8 @@ const SortDropdown: React.FC<SortDropdownProps> = ({ onSortChange }) => {
 
   const sortOptions = [
     'Relevance',
-    'Title (A-Z)',
-    'Title (Z-A)',
-    'Artist (A-Z)',
-    'Artist (Z-A)',
+    'Title',
+    'Artist'
   ];
 
   const handleOptionClick = (option: string) => {

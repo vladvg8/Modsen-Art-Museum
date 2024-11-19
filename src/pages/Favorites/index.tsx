@@ -13,12 +13,12 @@ import {
 } from './Favorites.styles';
 import bookmarkIcon from './../../assets/images/bookmark-icon.svg';
 import SmallCard from '../../components/SmallCard';
-import useLocalStorageIds from '../../hooks/useLocalStorageIds';
 import { fetchShortArtworkInfo } from '../../api';
 import { CardProps } from '../../constants/CardProps';
+import { useLocalStorage } from '../../contexts/LocalStorageContext';
 
 const Favorites: React.FC = () => {
-  const { ids } = useLocalStorageIds('favoriteArtworks');
+  const { ids } = useLocalStorage();
   const [cards, setCards] = useState<CardProps[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -64,7 +64,12 @@ const Favorites: React.FC = () => {
               </Text>
             </WorksInfo>
             {loading ? (
-              <Text color={'#393939'} size={'1.5rem'} weight={400} marginTop={'1rem'}>
+              <Text
+                color={'#393939'}
+                size={'1.5rem'}
+                weight={400}
+                marginTop={'1rem'}
+              >
                 Loading...
               </Text>
             ) : cards.length > 0 ? (
