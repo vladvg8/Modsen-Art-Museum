@@ -1,23 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
-const Home: React.FC = () => <h1>Главная страница</h1>;
-const Art: React.FC = () => <h1>Страница с искусством</h1>;
-const Favorites: React.FC = () => <h1>Избранное</h1>;
+import './index.css';
+import {
+  BrowserRouter as Router,
+  Navigate,
+  Route,
+  Routes,
+} from 'react-router-dom';
+import Home from 'pages/Home';
+import Favorites from 'pages/Favorites';
+import Artwork from 'pages/Artwork';
+import ErrorBoundary from 'components/ErrorBoundary';
+import { LocalStorageProvider } from 'contexts/LocalStorageContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/art" element={<Art />} />
-        <Route path="/favorite" element={<Favorites />} />
-        <Route path="*" element={<h1>404</h1>} />
-      </Routes>
-    </Router>
-  </React.StrictMode>
+  <ErrorBoundary>
+    <LocalStorageProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/art" element={<Artwork />} />
+          <Route path="/favorite" element={<Favorites />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </Router>
+    </LocalStorageProvider>
+  </ErrorBoundary>
 );
