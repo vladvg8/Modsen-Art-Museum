@@ -50,6 +50,9 @@ export const Author = styled.p`
   font-size: 1rem;
   margin: 0;
   font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: #e0a449;
 `;
 
